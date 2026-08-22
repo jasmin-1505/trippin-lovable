@@ -17,6 +17,8 @@ dev-dist
 # regenerated deterministically on every `npm install`.
 public/icons/*.png
 
+package-lock.json
+
 # Editor directories and files
 .vscode/*
 !.vscode/extensions.json
