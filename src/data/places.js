@@ -30,6 +30,7 @@ export const PLACES = [
       premium: 'Guided heritage walk including stepwell ₹400',
     },
     localContext: 'Locals come here for morning meditation before the city wakes up.',
+    localAttribution: 'Suggested by Priya, Jaipur local since 2009',
   },
   {
     id: 2,
@@ -51,6 +52,7 @@ export const PLACES = [
       premium: 'Sunset photography guide ₹600',
     },
     localContext: 'Young Jaipuris come here on evenings they want to remember.',
+    localAttribution: 'Suggested by Rohan, Jaipur local since 2015',
   },
   {
     id: 3,
@@ -72,6 +74,7 @@ export const PLACES = [
       premium: 'Private guided tour of inner chambers ₹1200',
     },
     localContext: 'Local historians say the Zenana ceiling is the most underrated room in all of Rajasthan.',
+    localAttribution: 'Suggested by Meera, Jaipur local since 1998',
   },
   {
     id: 4,
@@ -93,6 +96,7 @@ export const PLACES = [
       premium: 'Guided textile tour with curator ₹800',
     },
     localContext: 'Textile designers from across India make pilgrimage here to study the embroidery patterns. Most visit before 10am.',
+    localAttribution: 'Suggested by Ananya, Jaipur local since 2012',
   },
   {
     id: 5,
@@ -114,6 +118,7 @@ export const PLACES = [
       premium: "Two lassis and take your time — there's no upsell here",
     },
     localContext: "Jaipuris who've moved abroad dream about this. It's their first stop when they come back.",
+    localAttribution: 'Suggested by Vikram, Jaipur local since 2003',
   },
   {
     id: 6,
@@ -135,6 +140,7 @@ export const PLACES = [
       premium: 'Full Rajasthani breakfast thali ₹200',
     },
     localContext: 'Every Jaipur resident has a strong opinion on whether Rawat or Lassiwala is the better morning stop. Try both and pick a side.',
+    localAttribution: 'Suggested by Kavita, Jaipur local since 2011',
   },
   {
     id: 7,
@@ -156,6 +162,7 @@ export const PLACES = [
       premium: 'Sunset dinner with folk music ₹600',
     },
     localContext: 'Locals come here when they need to feel something bigger than their day.',
+    localAttribution: 'Suggested by Arjun, Jaipur local since 2018',
   },
   {
     id: 8,
@@ -177,6 +184,7 @@ export const PLACES = [
       premium: 'Eat everything, tip generously ₹350',
     },
     localContext: "This is where Jaipuris eat when they don't want to cook. Pure local crowd, zero tourists.",
+    localAttribution: 'Suggested by Divya, Jaipur local since 2014',
   },
   {
     id: 9,
@@ -198,6 +206,7 @@ export const PLACES = [
       premium: 'Live music Friday evening ₹200 cover charge',
     },
     localContext: 'Locals come here when they need to think, or when they want to feel something.',
+    localAttribution: 'Suggested by Sameer, Jaipur local since 2016',
   },
   {
     id: 10,
@@ -219,6 +228,7 @@ export const PLACES = [
       premium: 'Full brunch with fresh juice ₹600',
     },
     localContext: "Jaipur's creative crowd comes here on Sunday mornings. It feels like a different city.",
+    localAttribution: 'Suggested by Neha, Jaipur local since 2007',
   },
   {
     id: 11,
@@ -240,6 +250,7 @@ export const PLACES = [
       premium: 'Block-printing workshop hands-on 2 hours ₹800',
     },
     localContext: "Even most Jaipur locals don't know this exists. That's the whole point.",
+    localAttribution: 'Suggested by Farah, Jaipur local since 2010',
   },
   {
     id: 12,
@@ -261,6 +272,7 @@ export const PLACES = [
       premium: 'Certified gemstone with provenance documentation ₹2000+',
     },
     localContext: "Gem traders start deals with a handshake at 8am. It's a completely different world before tourists arrive.",
+    localAttribution: 'Suggested by Rajesh, Jaipur local since 2001',
   },
 ]
 

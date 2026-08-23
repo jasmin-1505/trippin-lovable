@@ -159,6 +159,8 @@ export default function App() {
 
   const handleBackFromConfirmation = () => go('trail', 'back')
 
+  const handleRedrill = () => go('drilldown', 'back')
+
   // ---- Bottom tabs ----
   const activeTab = screen === 'saved' ? 'saved' : screen === 'profile' ? 'profile' : 'discover'
 
@@ -225,6 +227,7 @@ export default function App() {
                   onOpenPlace={handleOpenPlace}
                   onShowFunCorner={handleShowFunCorner}
                   onSave={handleSaveTrail}
+                  onRedrill={handleRedrill}
                 />
               )}
               {screen === 'place' && activePlace && (
