@@ -36,6 +36,7 @@ export default function App() {
 
   const [profile, setProfile] = useState(() => storage.getProfile())
   const [consent, setConsent] = useState(() => storage.getConsent())
+  const [isGuest, setIsGuest] = useState(false)
   const [answers, setAnswers] = useState({})
   const [budget, setBudget] = useState(null)
   const [trail, setTrail] = useState([])
@@ -69,12 +70,22 @@ export default function App() {
   }
 
   // ---- Splash / consent / profile ----
-  const handleSplashContinue = () => go('consent')
+  const handleSplashContinue = () => {
+    setIsGuest(false)
+    go('consent')
+  }
+
+  const handleSkipGuest = () => {
+    setIsGuest(true)
+    go('consent')
+  }
 
   const handleConsentContinue = (c) => {
     setConsent(c)
     storage.setConsent(c)
-    go('profile')
+    // Guests skip profile creation entirely (K5) and go straight into
+    // exploring — profile stays reachable later via the Profile tab.
+    go(isGuest ? 'cityEntry' : 'profile')
   }
 
   const handleProfileContinue = (p) => {
@@ -159,6 +170,8 @@ export default function App() {
 
   const handleBackFromConfirmation = () => go('trail', 'back')
 
+  const handleSignUpNudge = () => go('splash')
+
   const handleRedrill = () => go('drilldown', 'back')
 
   // ---- Bottom tabs ----
@@ -202,7 +215,7 @@ export default function App() {
         <div className="flex-1 relative overflow-hidden">
           <AnimatePresence mode="popLayout" custom={direction} initial={false}>
             <ScreenTransition screenKey={screen} direction={direction}>
-              {screen === 'splash' && <Splash onContinue={handleSplashContinue} />}
+              {screen === 'splash' && <Splash onContinue={handleSplashContinue} onSkipGuest={handleSkipGuest} />}
               {screen === 'consent' && <DataConsent onContinue={handleConsentContinue} />}
               {screen === 'profile' && (
                 <ProfileSetup
@@ -249,7 +262,12 @@ export default function App() {
                 />
               )}
               {screen === 'saveConfirmation' && (
-                <SaveConfirmation city="Jaipur" onBack={handleBackFromConfirmation} />
+                <SaveConfirmation
+                  city="Jaipur"
+                  onBack={handleBackFromConfirmation}
+                  isGuest={isGuest}
+                  onSignUpNudge={handleSignUpNudge}
+                />
               )}
               {screen === 'saved' && <SavedTab savedTrail={savedTrail} onOpenTrail={handleOpenSavedTrail} />}
             </ScreenTransition>
