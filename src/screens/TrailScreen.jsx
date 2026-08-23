@@ -1,10 +1,10 @@
 import confetti from 'canvas-confetti'
-import { IconClock, IconDice5 } from '@tabler/icons-react'
+import { IconClock, IconDice5, IconRefresh } from '@tabler/icons-react'
 import { traitToLabel, BUDGET_OPTIONS } from '../data/drilldown'
 
 const ANSWER_ORDER = ['q1', 'q2', 'q3', 'q4', 'q5']
 
-export default function TrailScreen({ trail, answers, budget, onOpenPlace, onShowFunCorner, onSave }) {
+export default function TrailScreen({ trail, answers, budget, onOpenPlace, onShowFunCorner, onSave, onRedrill }) {
   const budgetLabel = BUDGET_OPTIONS.find((b) => b.id === budget)?.label ?? ''
   const q1Label = traitToLabel(answers.q1)
 
@@ -23,7 +23,16 @@ export default function TrailScreen({ trail, answers, budget, onOpenPlace, onSho
     <div className="h-full w-full bg-offwhite relative">
       <div className="absolute inset-0 overflow-y-auto pb-[176px]">
         <div className="px-6 pt-8 pb-4">
-          <h1 className="font-serif text-terracotta-dark text-[22px] mb-3">Your Jaipur trail</h1>
+          <div className="flex items-start justify-between gap-3 mb-3">
+            <h1 className="font-serif text-terracotta-dark text-[22px]">Your Jaipur trail</h1>
+            <button
+              onClick={onRedrill}
+              className="shrink-0 flex items-center gap-1 rounded-full border-[0.5px] border-border bg-white px-3 py-1.5 font-sans text-[11.5px] font-bold text-terracotta-dark tap-highlight-none"
+            >
+              <IconRefresh size={13} className="text-terracotta" stroke={2} />
+              Re-drill
+            </button>
+          </div>
 
           <div className="rounded-card bg-forest text-cream px-4 py-2.5 mb-3">
             <p className="font-sans text-[13px] font-bold">

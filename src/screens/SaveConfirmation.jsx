@@ -2,7 +2,7 @@ import { useEffect, useRef } from 'react'
 import { motion } from 'framer-motion'
 import confetti from 'canvas-confetti'
 
-export default function SaveConfirmation({ city = 'Jaipur', onBack }) {
+export default function SaveConfirmation({ city = 'Jaipur', onBack, isGuest, onSignUpNudge }) {
   const iconRef = useRef(null)
 
   useEffect(() => {
@@ -41,6 +41,15 @@ export default function SaveConfirmation({ city = 'Jaipur', onBack }) {
       >
         Back to trail
       </button>
+
+      {isGuest && (
+        <button
+          onClick={onSignUpNudge}
+          className="mt-4 font-sans text-[12.5px] text-terracotta-dark/50 tap-highlight-none"
+        >
+          Sign up to access this trail on any device →
+        </button>
+      )}
     </div>
   )
 }

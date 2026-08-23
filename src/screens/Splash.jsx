@@ -3,21 +3,24 @@ import { IconBrandGoogleFilled, IconBrandApple, IconBrandWhatsapp } from '@table
 import Logo from '../components/Logo'
 import Checkbox from '../components/Checkbox'
 
-export default function Splash({ onContinue }) {
+export default function Splash({ onContinue, onSkipGuest }) {
   const [agreeTerms, setAgreeTerms] = useState(false)
   const [agreeAge, setAgreeAge] = useState(false)
   const [error, setError] = useState(false)
 
   const bothChecked = agreeTerms && agreeAge
 
-  const handleTap = (provider) => {
+  const requireChecks = (action) => {
     if (!bothChecked) {
       setError(true)
       return
     }
     setError(false)
-    onContinue(provider)
+    action()
   }
+
+  const handleTap = (provider) => requireChecks(() => onContinue(provider))
+  const handleSkip = () => requireChecks(onSkipGuest)
 
   return (
     <div className="h-full w-full bg-cream flex flex-col items-center justify-between px-8 py-14 text-center">
@@ -70,6 +73,13 @@ export default function Splash({ onContinue }) {
         >
           <IconBrandWhatsapp size={18} />
           Continue with WhatsApp
+        </button>
+
+        <button
+          onClick={handleSkip}
+          className="w-full py-2 font-sans text-[13px] font-bold text-terracotta-dark/60 tap-highlight-none"
+        >
+          Skip & explore as a guest →
         </button>
       </div>
     </div>

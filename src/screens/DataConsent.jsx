@@ -27,7 +27,12 @@ export default function DataConsent({ onContinue }) {
 
   const toggle = (key, value) => setConsent((c) => ({ ...c, [key]: value }))
 
-  const acceptSelected = () => onContinue(consent)
+  const anySelected = consent.location || consent.analytics || consent.personalisation
+
+  const acceptSelected = () => {
+    if (!anySelected) return
+    onContinue(consent)
+  }
   const acceptAll = () => onContinue({ location: true, analytics: true, personalisation: true })
 
   return (
@@ -68,7 +73,8 @@ export default function DataConsent({ onContinue }) {
       <div className="mt-auto flex flex-col gap-2.5">
         <button
           onClick={acceptSelected}
-          className="w-full rounded-full py-3.5 font-sans font-bold text-[15px] bg-terracotta text-cream tap-highlight-none"
+          disabled={!anySelected}
+          className="w-full rounded-full py-3.5 font-sans font-bold text-[15px] bg-terracotta text-cream tap-highlight-none disabled:opacity-40"
         >
           Accept selected &amp; continue
         </button>

@@ -1,6 +1,6 @@
 import { useState } from 'react'
 import { motion, AnimatePresence } from 'framer-motion'
-import { IconArrowLeft, IconClock, IconMapPin, IconCoin, IconStarFilled, IconStar } from '@tabler/icons-react'
+import { IconArrowLeft, IconClock, IconMapPin, IconCoin, IconStarFilled, IconStar, IconUserCircle } from '@tabler/icons-react'
 
 const FACES = {
   1: { emoji: '😞', label: 'Completely missed the mark' },
@@ -37,7 +37,12 @@ export default function PlaceCard({ place, selectedBudget, previousRating, onBac
         <p className="font-sans text-[11px] uppercase tracking-wide font-bold text-terracotta mb-1.5">
           {place.type} · {place.category}
         </p>
-        <h1 className="font-serif text-terracotta-dark text-[26px] leading-tight mb-3">{place.name}</h1>
+        <h1 className="font-serif text-terracotta-dark text-[26px] leading-tight mb-1.5">{place.name}</h1>
+
+        <div className="flex items-center gap-1.5 mb-4">
+          <IconUserCircle size={14} className="text-terracotta-dark/40 shrink-0" stroke={1.75} />
+          <p className="font-sans text-[11.5px] text-terracotta-dark/50 italic">{place.localAttribution}</p>
+        </div>
 
         <div className="flex flex-wrap gap-1.5 mb-4">
           {place.essence.map((tag) => (
